@@ -1,0 +1,65 @@
+
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    
+    providedCompile 'javax:javaee-web-api:8.0'
+    
+    testImplementation     'junit:junit:4.13'
+    
+    
+    //https://stackoverflow.com/questions/49246325/gradle-eclipse-jsf-project-java-lang-classnotfoundexception-javax-faces-webapp-f#49263809
+    //Javax Servlet
+    //compile 'javax.servlet:javax.servlet-api:3.0.1'
+    //JSF 
+    //compile 'javax.inject:javax.inject:1'
+    
+    
+    //Javax Servlet
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    
+    //JSF imports
+    //https://github.com/louvelg/jsf-primefaces-example/blob/master/build.gradle
+    //(I used updated includes)
+    // https://mvnrepository.com/artifact/com.sun.faces/jsf-api
+    //implementation group: 'com.sun.faces', name: 'jsf-api', version: '2.2.20'
+    // https://mvnrepository.com/artifact/com.sun.faces/jsf-impl
+    //implementation group: 'com.sun.faces', name: 'jsf-impl', version: '2.2.20'
+    
+    //Primefaces
+    // https://mvnrepository.com/artifact/org.primefaces/primefaces
+    implementation group: 'org.primefaces', name: 'primefaces', version: '10.0.0'
+    
+    //https://stackoverflow.com/questions/39240244/how-to-use-cdi-and-jsf-on-tomcat-8-5
+    implementation group: 'javax', name: 'javaee-web-api', version: '7.0'
+    implementation group: 'javax.enterprise', name: 'cdi-api', version: '1.2'
+    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '2.3.5.Final'
+    implementation group: 'org.jboss', name: 'jandex', version: '1.2.4.Final'
+
+    
+    //https://balusc.omnifaces.org/2013/10/how-to-install-cdi-in-tomcat.html
+    //Use the Install Weld in Tomcat 9- (last updated: 13 March 2021) directions
+    //because as of these notes AWS was using tomcat 8.5
+////    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-shaded', version: '3.1.6.Final'
+    
+    //https://stackoverflow.com/questions/41907820/cdi-viewscoped-bean-functionality-unavailable
+    //13-Jul-2021 19:47:37.064 INFO [http-nio-8080-exec-8] com.sun.faces.application.view.ViewScopeManager.<init> CDI @ViewScoped bean functionality unavailable
+    //To fix an issue with @ViewScoped being missing (See above error)
+////    implementation group: 'javax.enterprise', name: 'cdi-api', version: '1.2'
+
+    //Type Status Report
+    //Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+    //This will happen if you try to use @Named, and any scope in the newest CDI beans
+    
+    //Openwebbeans
+    //implementation group: 'javax.enterprise', name: 'cdi-api', version: '2.0'
+    //implementation group: 'org.apache.openwebbeans', name: 'openwebbeans-jsf', version: '2.0.20'
+    //implementation group: 'jakarta.validation', name: 'validation-api', version: '2.0.2'
+    
+}

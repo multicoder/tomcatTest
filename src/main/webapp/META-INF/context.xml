@@ -1,0 +1,15 @@
+<Context>
+    <Resource 
+        name="BeanManager"  
+        auth="Container"
+        type="javax.enterprise.inject.spi.BeanManager"
+        factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+        <Resource
+        name="jdbc/testDS"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="sampledatabase.cprilecms8ka.us-east-1.rds.amazonaws.com"
+        username="theadminuser"
+        password="ToastCheesePots123!#$" /> 
+</Context>
